@@ -34,3 +34,11 @@ html,body{height:100%;overflow:hidden}main{height:100dvh;min-height:0;max-width:
 #rotation-control{display:flex;align-items:center;flex-wrap:wrap;gap:0 12px;background:transparent;padding:0;border-radius:0;flex-basis:100%;white-space:normal}#rotation-control label{font-size:14px;padding:0;background:none;white-space:nowrap}#rotation-value{color:var(--mint)}.rotation-track{display:flex;align-items:center;gap:8px;flex:1;min-width:160px;max-width:400px;font-size:12px}.rotation-track span{white-space:nowrap;flex-shrink:0}#rotation-control #rotation-example{width:100%;min-width:60px;height:44px;margin:0;accent-color:var(--mint);touch-action:none}#rotation-note{font-size:12px;color:var(--muted);flex-basis:100%}
 @media(max-width:700px){#rotation-control label{font-size:12px}.rotation-track{max-width:none}#rotation-note{font-size:10px}}
 @media(orientation:landscape) and (max-height:500px){#rotation-control{gap:0 10px}#rotation-control label{font-size:11px}.rotation-track{font-size:11px;max-width:260px}#rotation-control #rotation-example{height:40px}#rotation-note{font-size:10px}}
+@media(orientation:landscape) and (max-height:500px){
+ #visual:has(#glasses-dock:not([hidden])) .va{left:112px;max-width:29%}
+ #glasses-dock{bottom:94px;height:92px}
+ #glasses-handle{top:15px;height:34px;min-height:34px}
+ #glasses-handle svg{height:34px}
+ #glasses-dock[data-on=true] #glasses-handle{transform:translateY(28px)}
+ .glasses-direction{top:3px}#glasses-state{bottom:2px}
+}

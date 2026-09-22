@@ -20,7 +20,7 @@ function syncGlasses(visible){
 function wearGlasses(value){readers=value;readersByScene[current.situation]=value;updateIllustration(current);}
 let glassesDrag=null;
 $('glasses-handle').onpointerdown=e=>{if(e.button!==0)return;e.preventDefault();glassesDrag={y:e.clientY,on:readers};e.currentTarget.setPointerCapture(e.pointerId);};
-$('glasses-handle').onpointermove=e=>{if(!glassesDrag)return;const position=Math.max(0,Math.min(44,(glassesDrag.on?44:0)+e.clientY-glassesDrag.y));e.currentTarget.style.transform='translateY('+position+'px)';};
+$('glasses-handle').onpointermove=e=>{if(!glassesDrag)return;const travel=matchMedia('(orientation:landscape) and (max-height:500px)').matches?28:44;const position=Math.max(0,Math.min(travel,(glassesDrag.on?travel:0)+e.clientY-glassesDrag.y));e.currentTarget.style.transform='translateY('+position+'px)';};
 $('glasses-handle').onpointerup=e=>{if(!glassesDrag)return;const dy=e.clientY-glassesDrag.y;glassesDrag=null;wearGlasses(Math.abs(dy)>12?dy>0:!readers);};
 $('glasses-handle').onpointercancel=()=>{glassesDrag=null;syncGlasses(['reading','arm'].includes(current.situation)&&current.lens==='multi'&&current.topic!=='astigmatism');};
 $('glasses-handle').onclick=e=>{if(e.detail===0)wearGlasses(!readers);};
