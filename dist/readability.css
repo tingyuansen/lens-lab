@@ -1,0 +1,168 @@
+/* Readable defaults: important copy never shrinks to fit a phone viewport. */
+:root{font-size:22px;line-height:1.55;--muted:#d1dce3}
+button,select{font-size:20px;min-height:48px}
+#comparison header{min-height:88px;height:auto;padding:12px 0;gap:14px;flex-wrap:wrap}
+#comparison header .brand{font-size:24px}
+#comparison .scene-label{font-size:20px;max-width:none;gap:10px;flex:1;order:0;flex-basis:auto}
+#comparison .scene-navigation{flex:1;gap:8px}
+#comparison .scene-navigation button{font-size:18px;line-height:1.3;min-height:48px;padding:8px 12px}
+#comparison .scene-navigation select{font-size:20px;min-height:48px;padding:8px;max-width:none;width:100%}
+#comparison .page-tabs{padding:4px;margin-left:0}
+#comparison .page-tabs button{font-size:20px;min-height:48px;padding:8px 16px}
+#comparison #visual-shell{overflow-y:auto;scrollbar-gutter:stable}
+#comparison .illustration-topics{position:static;flex-wrap:wrap;padding:8px 12px;gap:6px;border-radius:0}
+#comparison .illustration-topics button{font-size:20px;min-height:48px;padding:8px 14px}
+#comparison .visual-toolbar{position:static;padding:10px 14px;gap:10px;background:#152b35;flex-wrap:wrap}
+#comparison .visual-toolbar strong{position:static;transform:none;margin:0 auto 0 0;font-size:18px;line-height:1.5;white-space:normal;max-width:none;min-width:0;background:none;padding:0;flex:1 1 320px}
+#comparison .visual-toolbar .views button{font-size:20px;min-height:48px;min-width:54px;padding:8px 12px}
+#comparison .visual-toolbar #alternatives{font-size:20px;min-height:48px;max-width:none;padding:8px 14px;white-space:normal}
+#comparison #visual{flex:1 0 340px;min-height:340px;height:auto}
+#comparison .visual-label{font-size:20px;line-height:1.45;top:12px;padding:8px 10px;max-width:46%;overflow-wrap:anywhere}
+#comparison .va,#comparison #visual:has(#glasses-dock:not([hidden])) .va{left:12px;max-width:46%}
+#comparison .vb{right:12px}
+#comparison .visual-bottom{position:static;background:#0f222c;padding:14px 16px;gap:12px;border-radius:0}
+#comparison .visual-bottom p{font-size:20px;line-height:1.6;min-width:0;max-width:none;flex-basis:100%}
+#comparison .drag-hint{display:block;font-size:18px;line-height:1.5;flex-basis:100%;text-align:left}
+#comparison #halo-control,#comparison #rotation-control{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:0 0 10px;white-space:normal}
+#comparison #halo-control label,#comparison #rotation-control label{font-size:20px;line-height:1.5;white-space:normal}
+#comparison .halo-track,#comparison .rotation-track{font-size:18px;max-width:none;min-width:220px;gap:10px;flex:1}
+#comparison #halo-strength,#comparison #rotation-control #rotation-example{height:48px;min-height:48px}
+#comparison #halo-note,#comparison #rotation-note,#comparison #readers-control{font-size:18px;line-height:1.5;flex-basis:100%;max-width:none;text-align:left;padding:0}
+#comparison #glasses-dock{left:12px;bottom:12px;width:132px;height:160px;transform:none}
+#comparison #glasses-handle{left:12px;top:30px;width:108px;height:48px;min-height:48px}
+#comparison #glasses-handle svg{width:108px;height:48px}
+#comparison #glasses-dock[data-on=true] #glasses-handle{transform:translateY(44px)}
+#comparison .glasses-direction{font-size:16px;top:6px}
+#comparison #glasses-state{font-size:18px;bottom:5px}
+#comparison #visual-status{font-size:20px}
+#comparison .context h1{font-size:30px;line-height:1.4;letter-spacing:0}
+#comparison .context p,#comparison .cell p,#comparison #feature-note,.takeaway{font-size:22px;line-height:1.6}
+#comparison #details-panel .cell h3{font-size:26px;line-height:1.4;letter-spacing:0}
+#comparison .lens-heading h2{font-size:26px;overflow-wrap:anywhere}
+#comparison .lens-heading p,#comparison .row-label,#comparison .cell a{font-size:18px;letter-spacing:0;white-space:normal}
+#comparison .features>span,#comparison footer,#comparison footer a,#comparison footer button,#comparison #feature-note a{font-size:18px}
+#comparison .features button,#comparison .details-actions button{font-size:20px;min-height:48px}
+#comparison footer nav{flex-wrap:wrap;gap:12px 22px}
+dialog{width:min(780px,calc(100% - 24px))}
+dialog p,#source-list a{font-size:22px;line-height:1.65}
+.dialog-head h2,#question{font-size:28px;line-height:1.4}
+.option-list button{font-size:24px;min-height:52px}
+.option-list small,.eyebrow,#step-label{font-size:18px;line-height:1.5;letter-spacing:0}
+/* The optional technical lab uses the same readable copy sizes. */
+.lab button,.lab select,.sheet button,.sheet select{font-size:18px;min-height:48px}
+.lab .footnote,.lab .footnote button,.lab .scenario-label small,.lab .scene-caption,.lab .view-hint,.lab .status,.sheet .hint,.sheet .muted,.sheet p,.sheet .methods p,.sheet .model-section p,.sheet .model-section a,.sheet .range-block label,.sheet .guide li,.sheet .guide li a,.sheet summary,.sheet details p{font-size:18px;line-height:1.6}
+.lab .scenario-label strong,.sheet .toggles label,.sheet h3{font-size:20px}
+@media(max-width:1050px){
+ #comparison header .brand{display:none}
+ #comparison .scene-label{flex:1 1 460px}
+ #comparison .page-tabs{margin-left:auto}
+}
+@media(max-width:700px){
+ #comparison{padding:0 8px}
+ #comparison header{gap:8px;min-height:0;padding:10px 0}
+ #comparison .scene-label{display:block;flex:1 1 100%;order:2}
+ #comparison .scene-label>label{display:block;font-size:18px;margin-bottom:5px}
+ #comparison .page-tabs{width:100%;margin:0}
+ #comparison .page-tabs button{flex:1;font-size:20px}
+ #comparison .scene-navigation{gap:5px}
+ #comparison .scene-navigation button{font-size:18px;padding:8px 7px}
+ #comparison .scene-navigation select{font-size:20px;padding:8px 4px;flex:1;min-width:0}
+ #comparison .illustration-topics{gap:4px;padding:8px}
+ #comparison .illustration-topics button{font-size:18px;padding:8px}
+ #comparison .visual-toolbar{padding:10px;gap:8px}
+ #comparison .visual-toolbar strong{flex-basis:100%}
+ #comparison .visual-toolbar #alternatives{margin-left:auto;font-size:18px;padding:8px}
+ #comparison .visual-toolbar .views button{font-size:20px;padding:8px;min-width:44px}
+ #comparison .visual-label{font-size:18px;padding:7px;max-width:46%}
+ #comparison #visual{flex-basis:360px;min-height:360px}
+ #comparison .visual-bottom{padding:14px 12px}
+ #comparison .halo-track,#comparison .rotation-track{flex-basis:100%;min-width:0}
+ #comparison .lens-heading{display:block;padding:16px 5px}
+ #comparison .lens-heading .letter{margin-bottom:8px}
+ #comparison .lens-heading h2{font-size:23px}
+ #comparison #details-panel .cell h3{font-size:24px}
+ #comparison .cell p{font-size:20px}
+ #comparison .matrix{gap:0 18px}
+}
+@media(orientation:landscape) and (max-height:500px){
+ #comparison header{flex-wrap:nowrap;gap:8px;padding:6px 0}
+ #comparison .scene-label{display:flex;flex:1;order:0;min-width:0;gap:6px}
+ #comparison .scene-label>label{display:none}
+ #comparison .page-tabs{width:auto;flex-shrink:0;margin-left:auto}
+ #comparison .page-tabs button{font-size:18px;padding:8px 10px}
+ #comparison .scene-navigation button{font-size:18px;padding:8px 6px}
+ #comparison .scene-navigation select{font-size:18px}
+ #comparison .visual-toolbar strong{flex:1 1 240px}
+ #comparison #visual{flex:0 0 max(300px,75dvh);min-height:300px}
+ #comparison #illustration-panel{padding-bottom:6px}
+}
+/* Images fill the stage. Large controls sit on translucent overlays. */
+#comparison .header-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.language-switch{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 12px;border:1px solid #77948e;border-radius:10px;font-size:20px;line-height:1.3;text-decoration:none;white-space:nowrap;color:#bcf5e5;background:#17302b}
+#comparison #visual-shell{display:block;position:relative;overflow:auto}
+#comparison .image-stage{position:relative;height:100%;min-height:calc(var(--controls-height,110px) + var(--bottom-height,160px) + 300px);isolation:isolate}
+#comparison #visual{position:absolute;inset:0;width:100%;height:100%;min-height:0}
+#comparison #visual>canvas,#comparison .visual-layer canvas{object-fit:cover}
+#comparison #visual[data-scene=reading]>canvas,#comparison #visual[data-scene=reading] .visual-layer canvas,#comparison #visual[data-diagram=true]>canvas,#comparison #visual[data-diagram=true] .visual-layer canvas{object-fit:contain}
+#comparison .image-controls{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:10px;background:linear-gradient(#08151ff2,#08151fc4)}
+#comparison .illustration-topics{background:transparent;border:0;padding:0;flex-wrap:wrap}
+#comparison .visual-toolbar{background:transparent;padding:0;margin-left:auto;gap:6px;flex-wrap:wrap}
+#comparison .illustration-topics button,#comparison .visual-toolbar button{background:#102733e8}
+#comparison .visual-label{top:calc(var(--controls-height,110px) + 10px);background:#081721ed}
+#comparison .visual-bottom{position:absolute;bottom:0;left:0;right:0;z-index:8;background:#091d29eb;border-top:1px solid #5d7683;padding:12px 16px;gap:6px}
+#comparison #halo-control,#comparison #rotation-control{padding-bottom:0;border:0;gap:4px 16px}
+#comparison .image-caption{width:100%;font-size:20px}
+#comparison .image-caption summary{font-size:20px;min-height:48px;display:list-item;align-content:center;cursor:pointer;color:#c4f4e9;padding:8px 0}
+#comparison .image-caption #visual-note{position:static;font-size:18px;line-height:1.5;font-weight:500;display:block;color:#e2eaf0}
+#comparison .image-caption p{margin:8px 0}
+#comparison .image-caption #readers-control,#comparison .image-caption .drag-hint{display:block;margin-top:8px}
+#comparison #glasses-dock{bottom:calc(var(--bottom-height,160px) + 10px);height:188px;width:156px;background:#091d29eb}
+#comparison #glasses-handle{left:21px;top:44px}
+#comparison .glasses-direction{font-size:18px;width:144px;text-align:center;line-height:1.15}
+#comparison #glasses-state{font-size:18px}
+@media(max-width:1050px){#comparison .header-tools{margin-left:auto}#comparison .scene-label{flex:1 1 390px}}
+@media(max-width:700px){
+ #comparison .header-tools{width:100%;gap:6px}
+ #comparison .header-tools .page-tabs{width:auto;flex:1}
+ .language-switch{font-size:18px;padding:8px 10px}
+ #comparison .image-controls{padding:8px}
+ #comparison .image-caption summary{font-size:18px}
+ #comparison .visual-bottom{padding:10px 12px}
+ #comparison .image-stage{min-height:calc(var(--controls-height,130px) + var(--bottom-height,200px) + 300px)}
+}
+@media(orientation:landscape) and (max-height:500px){
+ #comparison header{flex-wrap:wrap}
+ #comparison .header-tools{width:auto;flex-wrap:nowrap;gap:6px}
+ #comparison .scene-label{flex:1 1 320px}
+ #comparison .header-tools .page-tabs{flex:none}
+ #comparison .page-tabs button{font-size:18px;padding:8px}
+ .language-switch{font-size:18px;padding:8px}
+ #comparison .halo-track,#comparison .rotation-track{flex-basis:220px}
+}
+#comparison .visual-toolbar .views button[aria-pressed=true]{background:var(--mint);color:#12312d}
+#comparison .illustration-topics button[aria-pressed=true]{background:#305650;color:#c2ffed}
+#comparison .image-stage{min-height:calc(var(--controls-height,110px) + var(--bottom-height,160px) + 240px)}
+/* Short landscape screens keep the effect bar visible over the image. */
+@media(orientation:landscape) and (max-height:500px){
+ #comparison header{min-height:0}
+ #comparison .image-stage{min-height:100%}
+ #comparison .image-stage:has(.image-caption[open]){min-height:calc(var(--controls-height,70px) + var(--bottom-height,220px) + 180px)}
+ #comparison .visual-bottom{padding:8px 12px}
+ #comparison .image-caption:not([open]){position:absolute;right:12px;bottom:4px;width:auto}
+ #comparison .image-caption summary{font-size:18px;min-height:44px;padding:6px 0}
+ #comparison #halo-note,#comparison #rotation-note{padding-right:190px;font-size:18px}
+ #comparison #glasses-dock{height:128px;width:132px;bottom:calc(var(--bottom-height,110px) + 8px)}
+ #comparison #glasses-handle{left:12px;top:5px}
+ #comparison .glasses-direction{display:none}
+ #comparison #glasses-state{bottom:3px}
+ #comparison #visual:has(#glasses-dock:not([hidden])) .va{left:156px;max-width:29%}
+}
+@media(max-width:1050px){
+ .lab{height:auto;min-height:100dvh}
+ .lab .topbar{position:relative;display:flex;flex-wrap:wrap;align-items:center;height:auto;min-height:120px;padding:12px;gap:12px}
+ .lab .scenes{position:static;transform:none;flex-wrap:wrap;max-width:100%}
+ .lab .topbar nav{display:flex;flex-wrap:wrap;gap:6px}
+ .lab .scenes select{font-size:18px;max-width:100%}
+ .lab .stage{min-height:450px}
+ .sheet .lens-options{grid-template-columns:1fr 1fr}
+}

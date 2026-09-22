@@ -20,6 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Check English interface
+        run: python3 scripts/build-english.py --check
+      - name: Check JavaScript syntax
+        run: |
+          for file in dist/*.js dist/en/*.js; do node --check "$file"; done
       - name: Validate optical core
         run: node audit-optics.mjs
       - name: Validate illustrations

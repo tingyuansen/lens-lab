@@ -2,7 +2,7 @@
 
 A Chinese-first, interactive teaching tool for understanding cataract intraocular lens (IOL) trade-offs. Clinical terms stay in English with Chinese explanations, so they are easy to recognise during a consultation.
 
-**[Open the website](https://tingyuansen.github.io/lens-lab/)** · [中文模型与核对记录](dist/VALIDATION.md)
+**[中文网站](https://tingyuansen.github.io/lens-lab/)** · **[English website](https://tingyuansen.github.io/lens-lab/en/)** · [中文核对记录](dist/VALIDATION.md) · [English validation record](dist/en/VALIDATION.md)
 
 > Educational illustrations, not a preview of anyone's postoperative vision. The optical model is not calibrated to a commercial lens, clinically validated, or reviewed by an ophthalmologist. Do not use the pictures to choose an implant or judge driving safety.
 
@@ -15,7 +15,7 @@ A Chinese-first, interactive teaching tool for understanding cataract intraocula
 - Symbolic focus-range diagrams for Enhanced monofocal（增强型单焦点）and EDOF（延长焦深）.
 - Source-linked explanations, a short preference guide, and an optional Fourier-optics laboratory.
 
-The illustration fills the main view; explanations and tables live in **详细说明**. Use **上一场景 / 下一场景**, the scene selector, keyboard arrows, or a horizontal swipe to change scenes. Drag the middle divider to compare the same scene. The layout supports desktop and portrait/landscape phones.
+The illustration fills the main view, with readable controls on translucent overlays; explanations and tables live in **详细说明 / Details**. Use **上一场景 / 下一场景**, the scene selector, keyboard arrows, or a horizontal swipe to change scenes. Drag the middle divider to compare the same scene. The layout supports desktop and portrait/landscape phones. Text uses larger defaults (main explanations 20–22 px, controls 18–20 px); short screens scroll instead of shrinking essential copy.
 
 ### About the halo slider
 
@@ -35,7 +35,7 @@ Street scenes use an assumed 40° horizontal field. Mapping a wide street image 
 
 ## Run locally
 
-No build step, package installation, account, API key, or backend is required. Use a local HTTP server because the app uses JavaScript modules and Web Workers:
+The committed static files run without a build step, package installation, account, API key, or backend. Use a local HTTP server because the app uses JavaScript modules and Web Workers:
 
 ```sh
 git clone https://github.com/tingyuansen/lens-lab.git
@@ -77,13 +77,13 @@ node audit-illustrations.mjs
 
 The checks cover FFT inversion, energy normalization, an analytical diffraction-limited MTF comparison, independent cylinder calculations, linear-light convolution, corrected/uncorrected near and intermediate behavior, and image-field kernel scaling. `optics-test-results.json` records a reference run of the core audit; run the scripts for fresh results.
 
-The GitHub Actions workflow runs both audits before publishing `dist/`. These numerical checks do not constitute medical review, clinical validation, or testing on every physical phone. Responsive layouts and key controls have also been checked in a browser.
+The GitHub Actions workflow runs both audits and checks the generated English interface before publishing `dist/`. These numerical checks do not constitute medical review, clinical validation, or testing on every physical phone. Responsive layouts and key controls have also been checked in a browser.
 
 ## Project layout
 
 | Path | Purpose |
 | --- | --- |
-| `dist/index.html`, `compare.js`, `compare.css` | Main Chinese comparison interface |
+| `dist/index.html`, `compare.js`, `compare.css`, `readability.css` | Main Chinese comparison interface |
 | `dist/illustrations.js`, `illustration-worker.js` | Scene rendering and the three-focus teaching example |
 | `dist/halo-display.js` | Display-only halo/haze illustration blending |
 | `dist/optics.js`, `worker.js` | Fourier optics and convolution |
@@ -94,6 +94,19 @@ The GitHub Actions workflow runs both audits before publishing `dist/`. These nu
 | `.github/workflows/pages.yml` | Validation and GitHub Pages deployment |
 
 `dist/` is the directly maintained static website, not disposable generated output.
+
+## Languages and editing
+
+The main app is Simplified Chinese with English clinical terms. `/en/` is a fully English interface, including the reading target, dialogs and optional lab. The language link carries the selected scene, lens, topic and A/B mode. Reading targets are illustrative; Chinese and English text are not clinically equivalent acuity tests.
+
+Chinese interface sources live in `dist/`. Reviewed phrase translations are in `locales/en.json`; the English audit source is `locales/VALIDATION.en.md`. Regenerate after editing interface text:
+
+```sh
+python3 scripts/build-english.py
+python3 scripts/build-english.py --check
+```
+
+Generated English files are committed under `dist/en/`; do not edit them directly. Both languages share image assets, styles, and numerical workers. The generator fails on untranslated Chinese phrases, and CI rejects stale English output.
 
 ## Deploy to GitHub Pages
 

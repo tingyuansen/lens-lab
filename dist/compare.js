@@ -1,5 +1,5 @@
 import{sources}from './evidence.js';import{updateIllustration}from './illustrations.js';
-const $=id=>document.getElementById(id);let lens='multi',topic='lens',situation='night',view='both',feature=null,step=0,answers=[];
+const $=id=>document.getElementById(id);const params=new URLSearchParams(location.search);const pick=(key,values,fallback)=>values.includes(params.get(key))?params.get(key):fallback;let lens=pick('lens',['multi','enhanced','edof'],'multi'),topic=pick('topic',['lens','astigmatism'],'lens'),situation=pick('scene',['night','arm','reading','everyday'],'night'),view=pick('view',['a','both','b'],'both'),feature=null,step=0,answers=[];
 const data={
 mono:{night:['较少光晕等光学干扰','与 Multifocal（多焦点）相比，通常光晕较少、对比度损失较小，但不保证完全没有光晕。','benefit','guideline'],reading:['通常需要阅读眼镜','前提是双眼均以看远为目标。','cost','rcophth']},
 multi:{title:'Multifocal（多焦点）',subtitle:'多个焦点 · 包括 Trifocal（三焦点）',night:['光晕与对比度方面的取舍更多','可能增加夜间驾驶的困难；程度因型号及个人而异。','cost','patient'],reading:['较少依赖阅读眼镜','做某些事情时，仍可能需要眼镜。','benefit','patient']},
@@ -52,3 +52,6 @@ $('comparison').addEventListener('touchend',e=>{
 $('comparison').addEventListener('touchcancel',()=>{swipeStart=null;},{passive:true});
 
 document.querySelectorAll('[data-topic]').forEach(button=>button.onclick=()=>{topic=button.dataset.topic;document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));render();});
+
+const languageLink=document.querySelector('.language-switch');languageLink.addEventListener('click',()=>{const target=new URL(languageLink.href);target.search=new URLSearchParams({scene:situation,lens,topic,view}).toString();languageLink.href=target.href;});
+document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
