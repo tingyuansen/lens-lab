@@ -1,5 +1,6 @@
 import {haloIllustration} from './halo-display.js';
-const $=id=>document.getElementById(id);const worker=new Worker('illustration-worker.js',{type:'module'});const photo=new Image();photo.src='pj-night.png';let ready=false,current={},request=0,cache=new Map(),lastKey='',readers=false,rotated=0,haloStrength=.3;const pendingKeys=new Map(),readersByScene={reading:false,arm:false};photo.onload=()=>{ready=true;updateIllustration(current);};photo.onerror=()=>{$('visual-status').textContent='照片暂时无法加载，请尝试阅读场景。';};
+const urlSettings=new URLSearchParams(location.search);const readSetting=(key,fallback,max)=>{const raw=urlSettings.get(key),value=Number(raw);return raw!==null&&Number.isFinite(value)&&value>=0&&value<=max?value:fallback;};
+const $=id=>document.getElementById(id);const worker=new Worker('illustration-worker.js',{type:'module'});const photo=new Image();photo.src='pj-night.png';let ready=false,current={},request=0,cache=new Map(),lastKey='',readers=false,rotated=readSetting('rotation',0,30),haloStrength=readSetting('halo',30,100)/100;const pendingKeys=new Map(),readersByScene={reading:urlSettings.get('readingGlasses')==='on',arm:urlSettings.get('armGlasses')==='on'};photo.onload=()=>{ready=true;updateIllustration(current);};photo.onerror=()=>{$('visual-status').textContent='照片暂时无法加载，请尝试阅读场景。';};
 const dayPhoto=new Image();let dayReady=false;dayPhoto.onload=()=>{dayReady=true;updateIllustration(current);};dayPhoto.onerror=()=>{$('visual-status').textContent='日间照片暂时无法加载，请尝试夜间或阅读场景。';};
 const armPhoto=new Image();let armReady=false;armPhoto.onload=()=>{armReady=true;updateIllustration(current);};armPhoto.onerror=()=>{$('visual-status').textContent='番石榴图片暂时无法加载，请尝试其他场景。';};
 const input=document.createElement('canvas');input.width=640;input.height=360;const ctx=input.getContext('2d',{willReadFrequently:true});
@@ -42,3 +43,7 @@ for(const [selector,variable]of [['.image-controls','--controls-height'],['.visu
  const observe=new ResizeObserver(entries=>{const height=entries[0].borderBoxSize?.[0]?.blockSize||element.offsetHeight;imageStage.style.setProperty(variable,height+'px');});
  observe.observe(element);
 }
+
+export function getIllustrationSettings(){return{halo:String(Math.round(haloStrength*100)),rotation:String(rotated),readingGlasses:readersByScene.reading?'on':'off',armGlasses:readersByScene.arm?'on':'off'};}
+$('rotation-example').value=String(rotated);describeRotation(rotated);
+$('halo-strength').value=String(Math.round(haloStrength*100));$('halo-strength').oninput();

@@ -1,4 +1,4 @@
-import{sources}from './evidence.js';import{updateIllustration}from './illustrations.js';
+import{sources}from './evidence.js';import{updateIllustration,getIllustrationSettings}from './illustrations.js';
 const $=id=>document.getElementById(id);const params=new URLSearchParams(location.search);const pick=(key,values,fallback)=>values.includes(params.get(key))?params.get(key):fallback;let lens=pick('lens',['multi','enhanced','edof'],'multi'),topic=pick('topic',['lens','astigmatism'],'lens'),situation=pick('scene',['night','arm','reading','everyday'],'night'),view=pick('view',['a','both','b'],'both'),feature=null,step=0,answers=[];
 const data={
 mono:{night:['较少光晕等光学干扰','与 Multifocal（多焦点）相比，通常光晕较少、对比度损失较小，但不保证完全没有光晕。','benefit','guideline'],reading:['通常需要阅读眼镜','前提是双眼均以看远为目标。','cost','rcophth']},
@@ -53,5 +53,7 @@ $('comparison').addEventListener('touchcancel',()=>{swipeStart=null;},{passive:t
 
 document.querySelectorAll('[data-topic]').forEach(button=>button.onclick=()=>{topic=button.dataset.topic;document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));render();});
 
-const languageLink=document.querySelector('.language-switch');languageLink.addEventListener('click',()=>{const target=new URL(languageLink.href);target.search=new URLSearchParams({scene:situation,lens,topic,view}).toString();languageLink.href=target.href;});
+const languageLink=document.querySelector('.language-switch');languageLink.addEventListener('click',()=>{const target=new URL(languageLink.href);target.search=new URLSearchParams({scene:situation,lens,topic,view,panel:$('comparison').dataset.panel,...getIllustrationSettings()}).toString();languageLink.href=target.href;});
 document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
+
+showPanel(pick('panel',['illustration','details'],'illustration'));

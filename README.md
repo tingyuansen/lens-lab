@@ -97,7 +97,7 @@ The GitHub Actions workflow runs both audits and checks the generated English in
 
 ## Languages and editing
 
-The main app is Simplified Chinese with English clinical terms. `/en/` is a fully English interface, including the reading target, dialogs and optional lab. The language link carries the selected scene, lens, topic and A/B mode. Reading targets are illustrative; Chinese and English text are not clinically equivalent acuity tests.
+The main app is Simplified Chinese with English clinical terms. `/en/` is a fully English interface, including the reading target, dialogs and optional lab. The language link carries the selected scene, lens, topic, view, effect/axis sliders and per-scene glasses settings. Reading targets are illustrative; Chinese and English text are not clinically equivalent acuity tests.
 
 Chinese interface sources live in `dist/`. Reviewed phrase translations are in `locales/en.json`; the English audit source is `locales/VALIDATION.en.md`. Regenerate after editing interface text:
 
