@@ -1,0 +1,7 @@
+export const sources={guideline:'https://www.escrs.org/escrs-recommendations-for-cataract-surgery',patient:'https://www.escrs.org/patient-portal/cataract-surgery',enhanced:'https://pubmed.ncbi.nlm.nih.gov/40623059/',toric:'https://pubmed.ncbi.nlm.nih.gov/38152615/',aspheric:'https://escrs.org/channels/eurotimes-articles/need-to-know-spherical-aberration',rcophth:'https://www.rcophth.ac.uk/wp-content/uploads/2025/09/APDF-SE180804_Understanding-Cataracts-2025-v01.pdf'};
+export const evidence={
+mono:{title:'一个主要焦点，光学取舍相对较少。',summary:'如果重视对比度与夜间驾驶，也接受戴眼镜，可从此选项开始与医生讨论。',pros:[['通常比 Multifocal（多焦点）有较少光晕等光学副作用。','patient'],['可把目标设为看远或看近；看远较常见。','rcophth']],cons:[['如果双眼均以看远为目标，通常需要阅读眼镜。','rcophth'],['Monofocal（单焦点）并不保证完全没有光晕或眩光。','patient']]},
+enhanced:{title:'增加部分中距离视力，要看具体型号。',summary:'Enhanced monofocal（增强型单焦点）不代表所有型号具有相同光学表现。',pros:[['部分研究型号可改善中距离视力，同时保留远视力。','enhanced'],['一项 172 位患者、随访两个月的试验，在所测对比度与光晕、眩光方面未发现显著差异。','enhanced']],cons:[['该结果只适用于研究中的三种设计，不能推广至所有增强型型号。','enhanced'],['通常仍需阅读眼镜；可用视距因型号而异。','patient']]},
+edof:{title:'扩展可用视距，取舍随设计而异。',summary:'EDOF（延长焦深）设计不同；请询问具体型号的暗处对比度及眩光证据。',pros:[['主要把远距离视力范围扩展到中距离任务。','patient'],['与标准单焦点相比，可减少眼镜依赖。','guideline']],cons:[['近距离阅读通常仍需眼镜。','guideline'],['光晕、眩光及对比度影响取决于设计，不能笼统保证没有光晕。','guideline']]},
+multi:{title:'减少眼镜依赖，也增加光学取舍。',summary:'Trifocal（三焦点）提供多个焦点；是否适合，取决于眼睛健康与对光学影响的接受程度。',pros:[['可减少远、中、近距离任务的眼镜依赖。','patient']],cons:[['相比 Monofocal（单焦点），更可能出现光晕、眩光及对比度降低。','guideline'],['夜间驾驶症状可能随适应减轻，但也可能持续。','patient'],['某些活动仍可能需要眼镜。','patient']]}
+};

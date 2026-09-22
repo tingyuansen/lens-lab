@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-22T04:47:22.329Z",
+  "tests": [
+    {
+      "name": "FFT inverse reconstructs complex input",
+      "passed": true,
+      "maxError": 1.887379141862766e-15
+    },
+    {
+      "name": "2D FFT inverse reconstructs a non-square array",
+      "passed": true,
+      "maxError": 3.3306690738754696e-16
+    },
+    {
+      "name": "Toric residual matches cylinder tensor eigenvalue difference",
+      "passed": true
+    },
+    {
+      "name": "PSF conserves energy and diffraction MTF matches analytical circular pupil",
+      "passed": true,
+      "energy": 1.0000000000000873,
+      "maxMTFError": 0.00008358136720931775
+    },
+    {
+      "name": "Exact centered aspheric cancellation and matched toric correction agree with ideal",
+      "passed": true
+    },
+    {
+      "name": "Uncorrected cylinder, decentration, SA and defocus reduce on-axis concentration",
+      "passed": true,
+      "peakRatios": {
+        "cylinder": 0.0054349468563286,
+        "decenter": 0.386376183558984,
+        "spherical": 0.1276315364653043,
+        "near": 0.000541023889058746
+      }
+    },
+    {
+      "name": "Changing evidence category never changes the bench",
+      "passed": true
+    },
+    {
+      "name": "Scene kernels are positive, normalized and retain >99% PSF energy at audited extremes",
+      "passed": true,
+      "retained": [
+        0.9983050730463524,
+        0.9964496146921913,
+        0.9986656389232655,
+        0.9989166988492517,
+        0.9984734085001773
+      ]
+    },
+    {
+      "name": "sRGB linear-light conversion round trips every code value",
+      "passed": true
+    },
+    {
+      "name": "Full convolution preserves a constant scene including the image edges",
+      "passed": true
+    },
+    {
+      "name": "Full convolution of a central impulse agrees with the spatial kernel",
+      "passed": true
+    }
+  ]
+}
