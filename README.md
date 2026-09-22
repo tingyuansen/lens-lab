@@ -19,7 +19,7 @@ The illustration fills the main view; explanations and tables live in **详细�
 
 ### About the halo slider
 
-**光晕显示强度** adjusts the visibility of added halos and haze in the **night illustration**, from a gentler to a more noticeable example. The default is a gentle illustration, not a clinically estimated average. It changes the effect, not the image's zoom.
+**光晕／雾化示意强度** adjusts the visibility of added halos and haze across **night, daytime, reading and arm-length illustrations**, from a gentler to a more noticeable example. The default is a gentle illustration, not a clinically estimated average. It changes the effect, not the image's zoom.
 
 This is explicitly a **display-only illustration**. In linear light it blends the focused reference with the three-focus model rendering:
 
@@ -29,7 +29,7 @@ I_display = (1 − t) I_focused + t I_model
 
 The UI spans `t = 0…1`, initially `0.3`. Neither the endpoints nor the default are clinically calibrated. The control does not model surgical success, symptom probability, neuroadaptation, or a real lens's light allocation. It also reduces haze/contrast loss, rather than isolating a halo component. Imaging artifacts already in the generated photograph remain.
 
-Reading, arm-length and astigmatism calculations stay unchanged. **Do not combine these scenes into a prediction of one particular lens's performance.** Technical PSF plots are available only in the optional, independent single-focus laboratory, not as a scene in the main app.
+The same setting carries across scenes. In bright and near scenes it mainly changes haze and contrast, including apparent reading clarity. Each scene uses an ideally focused reference at its own target distance: this is **not one physically consistent lens model**, and the minimum does not establish the existence of a lens with perfect focus at every distance and no optical trade-offs. Astigmatism illustrations remain separate and unchanged by this control. **Do not combine these scenes into a prediction of one particular lens's performance.** Technical PSF plots are available only in the optional, independent single-focus laboratory, not as a scene in the main app.
 
 Street scenes use an assumed 40° horizontal field. Mapping a wide street image into the earlier 8° field made blur too large relative to the scene; the wider assumption reduces that presentation problem. This is not measured camera geometry or a clinically established “normal” halo size. Reading and arm-length targets retain their 8° teaching field.
 
@@ -85,7 +85,7 @@ The GitHub Actions workflow runs both audits before publishing `dist/`. These nu
 | --- | --- |
 | `dist/index.html`, `compare.js`, `compare.css` | Main Chinese comparison interface |
 | `dist/illustrations.js`, `illustration-worker.js` | Scene rendering and the three-focus teaching example |
-| `dist/halo-display.js` | Display-only night illustration blending |
+| `dist/halo-display.js` | Display-only halo/haze illustration blending |
 | `dist/optics.js`, `worker.js` | Fourier optics and convolution |
 | `dist/bench.html`, `app.js`, `style.css` | Independent single-focus optical laboratory |
 | `dist/evidence.js`, `method-content.html` | Clinical references and explanations |
