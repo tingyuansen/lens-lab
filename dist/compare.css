@@ -42,3 +42,9 @@ html,body{height:100%;overflow:hidden}main{height:100dvh;min-height:0;max-width:
  #glasses-dock[data-on=true] #glasses-handle{transform:translateY(28px)}
  .glasses-direction{top:3px}#glasses-state{bottom:2px}
 }
+/* Narrow phones or enlarged browser text: keep every control reachable. */
+@media(orientation:portrait) and (max-width:360px){
+ #visual-shell{overflow-y:auto}
+ #visual{flex:0 0 200px;min-height:200px}
+ .visual-bottom{padding-bottom:14px}
+}
